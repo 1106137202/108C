@@ -3,7 +3,7 @@
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
+  <meta charset="utf8-">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
@@ -46,7 +46,7 @@ if($_POST)
             $result = $form->asXML();
             $DocNo = $client->invokeProcess($oid, $eid, $uid, $process, $result, "108C");
             $conn = new mysqli($host,$account,$password,$database);
-            $result= $conn->query('INSERT INTO easyflow (DocNo,Status,event_time) Values ("'. $DocNo .'","等待處理中","'. $event_time .'")');
+            $result= $conn->query('INSERT INTO easyflow (DocNo,Status,event_time) Values ("'. $DocNo .'", 1 ,"'. $event_time .'")');
         }
 
         catch(Exception $e)
